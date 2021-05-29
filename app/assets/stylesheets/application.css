@@ -17,3 +17,10 @@
      margin-top: 20px;
      margin-left: 50%;
  }
+
+ .errors {
+     width: 400px;
+     height: 20px;
+     background-color:yellow;
+     text-align: center;
+ }
