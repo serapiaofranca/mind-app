@@ -9,6 +9,10 @@ class ContentsController < ApplicationController
     @content = Content.new
   end
 
+  def show
+    @content = Content.find(params[:id])
+  end
+
   def create
     @content = current_user.contents.build(content_params)
 
@@ -21,6 +25,15 @@ class ContentsController < ApplicationController
 
   def edit
     @content = Content.find(params[:id])
+  end
+
+  def update
+    @content = Content.find(params[:id])
+    if @content.update(content_params)
+      redirect_to contents_path, notice: 'Content successfully updated'
+    else     
+      render :edit
+    end
   end
 
   private
