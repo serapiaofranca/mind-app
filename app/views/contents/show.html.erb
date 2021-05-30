@@ -1,6 +1,10 @@
 <h1><%= @content.title %></h1>
 
 <p>
+    
     <%= raw @markdown.render(@content.description) %>
+    <br>
+    <br>
+    <Strong>Tags: </strong><%= @content.tags.pluck(:name).join(', ') %>
 </p>
 

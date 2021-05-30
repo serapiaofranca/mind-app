@@ -11,17 +11,19 @@
   </head>
 
   <body>
-    <div class='topo'>
-      <% if user_signed_in? %>
-        <%= link_to 'Home', home_path %>
-        <%= link_to 'Contents', contents_path %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      <% end %>
-    </div>    
+    <div class='container'>
+      <div class='topo'>
+        <% if user_signed_in? %>
+          <%= link_to 'Home', home_path, class:'btn btn-primary'%>
+          <%= link_to 'Contents', contents_path, class:'btn btn-primary' %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete , class:'btn btn-primary'%>
+        <% end %>
+      </div>    
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -6,25 +6,31 @@
 <% end %>
 
 <%= form_with(model: content, local: true) do |form|%>
-    <div class='field'>
-        <%= form.label :title%>
-        <%= form.text_field :title %>
-    </div>
-    <div class='field'>
-        <%= form.label :description %>
-        <%= form.text_area :description %>
-    </div>
+    <br><br>
+    <div class='form-group'>
 
-    <div class='field'>
-        <%= form.label :tags %>
-        <%= form.select :tags, 
-           options_for_select(current_user.tags.pluck(:name),
-                               content.tags.pluck(:name)), {},
-           { class: 'select2', multiple: 'multiple', style: 'width: 35%'} 
-        %>        
-    </div>
-
-    <div>
-        <%= form.submit %>
+        <div class="input-group">            
+            <%= form.label :title, class: "input-group-text", id: "inputGroup-sizing-sm" %>
+            <%= form.text_field :title, class: 'form-control' %>
+        </div>
+        <BR>
+        <div class="input-group">
+            <%= form.label :description, class: 'input-group-text', id: 'addon-wrapping' %>                      
+            <%= form.text_area :description, class: 'form-control'%> 
+        </div>
+        <BR><BR>
+        <div class='field'>  
+            <%= form.label :tags, class: "input-group-text", id: 'addon-wrapping' %>      
+            
+            <%= form.select :tags, 
+            options_for_select(current_user.tags.pluck(:name),
+                                content.tags.pluck(:name)), {},
+            { class: 'form-control select2', multiple: 'multiple'} 
+            %>        
+        </div>
+        <BR>
+        <div>
+            <%= form.submit 'Save', class: 'btn btn-primary' %>
+        </div>
     </div>
 <% end %>
